@@ -1,0 +1,28 @@
+name: Cache Example Workflow
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache dependencies
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/my-dependencies
+          key: cache-8001946
+
+      - name: prime-cache-8001946
+        run: |
+          if [[ "${{ steps.cache-step.outputs.cache-hit }}" == 'true' ]]; then
+            echo "Cache hit!"
+          else
+            echo "Cache miss!"
+          fi
