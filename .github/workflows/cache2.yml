@@ -1,4 +1,4 @@
-name: Cache dependencies example
+vname: Cache dependencies example
 
 on:
   push:
