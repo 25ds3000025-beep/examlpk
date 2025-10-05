@@ -1,4 +1,4 @@
-vname: Cache dependencies example
+name: Cache dependencies example
 
 on:
   push:
@@ -22,3 +22,4 @@ jobs:
 
       - name: prime-cache-8001946
         run: echo "Cache hit: ${{ steps.cache-deps.outputs.cache-hit }}"
+
